@@ -34,6 +34,20 @@ public class FunctionalityTests {
         assertNotNull(result);
     }
 
+      @Test
+    @DisplayName("Test finding a student by His/Her Name")
+    public void testStudentSearchbyName() {
+        String name = "Fuad";
+        List<Student> mockedStudents = Collections.singletonList(new Student());
+
+        when(studentRepository.findByName(name)).thenReturn(mockedStudents);
+
+        List<Student> result = studentRepository.findByName(name);
+
+        assertNotNull(result);
+        assertEquals(1, result.size());
+    }
+
     @Test
     @DisplayName("Search by first or last name")
     public void testStudentSearch() {
