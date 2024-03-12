@@ -34,7 +34,7 @@ public class FunctionalityTests {
         assertNotNull(result);
     }
 
-      @Test
+    @Test
     @DisplayName("Test finding a student by His/Her Name")
     public void testStudentSearchbyName() {
         String name = "Fuad";
@@ -61,6 +61,21 @@ public class FunctionalityTests {
         List<Student> students = studentService.getStudentByEitherName("Jamal", "Aliyev");
         System.out.printf("Found students: " + students.size());
         assertEquals(2, students.size());
+    }
+
+    @Test
+    @DisplayName("Search by first and last name")
+    public void testStudentBoth() {
+        Student s1 = new Student(1, "Jamal", "Hasanov", "a@b.com", new Date(), null, null);
+        Student s2 = new Student(2, "Aliya", "Mammadova", "a@b.com", new Date(), null, null);
+        Student s3 = new Student(3, "Kamran", "Aliyev", "a@b.com", new Date(), null, null);
+
+        List<Student> stList = List.of(s1, s2, s3);
+
+        when(studentRepository.findAll()).thenReturn(stList);
+        List<Student> students = studentService.getStudentBoth("Jamal", "Hasanov");
+        System.out.printf("Found students: " + students.size());
+        assertEquals(1, students.size());
     }
 
 
