@@ -4,40 +4,39 @@ Project README
 Overview
 This project is a Spring Boot application that manages student information. It provides functionalities to update student records and search for students by name. This README file provides an overview of the project and details the test cases implemented to ensure the functionality works as expected.
 
-Test Cases
-UpdateUser Test
-Description: This test case verifies the functionality to update a user's information.
-Test Method: UpdateUser()
+1. Update User Test
+Description: This test case verifies the functionality of updating a user's information.
+Test Method: Automated UI test using Selenium WebDriver.
 Test Steps:
-Navigates to the update page for a user with ID 1.
-Waits for input fields to be present.
-Clears existing data in input fields and enters new data.
-Checks checkboxes for specific courses.
-Submits the form.
-Expected Result:
-User information should be updated successfully.
-The updated user should have the new information reflected on the list page.
-CheckUpdatedUser Test
-Description: This test case verifies that the updated user information is correctly reflected on the list page.
-Test Method: CheckUpdatedUser()
+Navigate to the user update page.
+Locate input fields for first name, last name, and email.
+Fill in new user information.
+Check specific checkboxes.
+Submit the form.
+Expected Outcome: The user information should be updated successfully.
+
+2. Check Updated User Test
+Description: This test case checks if the updated user's information is correctly reflected on the user list page.
+Test Method: Automated UI test using Selenium WebDriver.
 Test Steps:
-Navigates to the list page.
-Searches for the updated user's first and last name.
-Expected Result:
-The updated user's first and last name should be present in the list.
-testStudentBoth Test
-Description: This test case verifies the functionality to search for a student by first and last name.
-Test Method: testStudentBoth()
+Navigate to the user list page.
+Search for the updated user's first and last name.
+Expected Outcome: The updated user's information should be displayed on the user list page.
+
+3. Search by First and Last Name Test
+Description: This test case validates the functionality of searching for a student by their first and last name.
+Test Method: JUnit test.
 Test Steps:
-Mocks a list of students.
-Calls the service method to search for students with a specific first and last name.
-Expected Result:
-The method should return a list containing the expected student.
-testStudentSearchbyName Test
-Description: This test case verifies the functionality to search for a student by name.
-Test Method: testStudentSearchbyName()
+Create a list of mocked students.
+Mock the behavior of the student repository to return the list of mocked students.
+Invoke the method to search for students by first and last name.
+Expected Outcome: The method should return the correct student based on the provided first and last name.
+
+4. Search by Name Test
+Description: This test case verifies the functionality of searching for a student by their name.
+Test Method: JUnit test.
 Test Steps:
-Mocks a list of students with the specified name.
-Calls the repository method to search for students by name.
-Expected Result:
-The method should return a list containing the expected student.
+Mock the behavior of the student repository to return a list of mocked students with the specified name.
+Invoke the method to search for students by name.
+Expected Outcome: The method should return the correct student with the specified name.
+
